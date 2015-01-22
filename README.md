@@ -10,11 +10,12 @@ Basics
 ------
 * [Bootstrap voorbeelden](http://getbootstrap.com/getting-started/#examples)
 * [Meer bootstrap](http://startbootstrap.com/)
+* [Javascript uitleg](http://learn.jquery.com/javascript-101/)
 * [Jquery voorbeelden](http://www.w3schools.com/jquery/jquery_examples.asp)
 
 Voorbeeld websites
 ------------------
-* [simpele quiz](TODO)
+* [eenvoudige quiz](eenvoudige-quiz/index.html)
 * [raad het getal](TODO)
 * [naam + clicks](TODO)
 * [vliegenmepper](TODO)
