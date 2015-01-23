@@ -9,6 +9,7 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
+    <!-- eigen stijl definities -->
     <style>
         .hidden { display: none; }
         .top-buffer { margin-top:20px; }
@@ -17,7 +18,7 @@
   <body>
     <div class="container">
       <div class="page-header">
-        <h1>Hello, world!</h1>
+        <h1><span class="label label-primary">Tijd om te quizen!</span></h1>
       </div>
 
       <div id="blok1">
@@ -94,14 +95,14 @@
         });
         // onze eigen functie: kijk het antwoord op vraag 'i' na
         function kijk_na(i) {
-            // lowerCase: let niet op hoofdletters
+            // toLowerCase: let niet op hoofdletters
             if ($("#vraag"+i).val().toLowerCase() == $("#antwoord"+i).val().toLowerCase()) {
                 // het juist antwoord!
                 $("#fout"+i).hide();
                 $("#juist"+i).show();
                 $("#blok"+(i+1)).show();
             } else {
-                // niet het juist antwoord, toon de hint
+                // een fout antwoord, toon de hint
                 $("#juist"+i).hide();
                 $("#fout"+i).show();
             }
