@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Raad het getal</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Raad het getal!</h1>
+        <p>Het getal is tussen 0 en 50 (inclusief) en je hebt nog <span id="kansen"></span> kansen!</p>
+      </div>
+
+      <p>
+        <img src="http://jackmalcolm.com/blog/wp-content/uploads/2011/09/numbers-300x225.jpg" alt="getallen" width="270px" />
+      </p>
+
+      <div class="form-inline">
+        <span>Jouw gok:</span>
+        <input type="text" id="gok" class="form-control"></input>
+        <button type="submit" id="kijkna" class="btn">Kijk na</button>
+      </div>
+
+
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // wanneer alles geladen is, verberg vanalles
+        $(document).ready(function(){
+            // de instellingen
+            var kansen = 6;
+            var getal_min = 0;
+            var getal_max = 50;
+            var getal = Math.floor(Math.random()*getal_max + getal_min);
+            //alert('DEBUG: Het te raden getal is '+getal);
+
+            // vul kansen in
+            $("#kansen").text(kansen);
+
+            // als op de knop geduwd wordt
+            $("#kijkna").click(function(){
+                var gok = Number($("#gok").val());
+                // even nakijken dat het wel degelijk een getal is
+                if (!gok)
+                    return;
+                if (gok == getal) {
+                    alert('Juist!');
+                    $("#kijkna").prop("disabled",true); // zet knop uit
+                } else {
+                    // niet juist
+                    kansen = kansen - 1;
+                    $("#kansen").text(kansen);
+                    if (kansen == 0) {
+                        alert('Game over... het getal was: '+getal);
+                        $("#kijkna").prop("disabled",true); // zet knop uit
+                    } else {
+                      if (gok < getal)
+                        alert('Te klein!');
+                      else
+                        alert('Te groot!');
+                    }
+                }
+            });
+        });
+    </script>
+  </body>
+</html>

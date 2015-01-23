@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Eenvoudige quiz</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- eigen stijl definities -->
+    <style>
+        .hidden { display: none; }
+        .top-buffer { margin-top:20px; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <h1><span class="label label-primary">Tijd om te quizen!</span></h1>
+      </div>
+
+      <div id="blok1">
+        <h2>Eerste vraag</h2>
+        <div>
+          Welke organisatie zet zich, onder meer in Belgie, in om jongeren te leren programmeren?
+        </div>
+        <input type="text" id="vraag1"></input>
+        <input type="hidden" id="antwoord1" value="CoderDojo" />
+        <button type="submit" id="kijkna1">Kijk na</button>
+        <span class="label label-success" id="juist1">Juist!</span>
+        <span class="label label-warning" id="fout1">Fout. Hint, kijk eens om je heen?</span>
+      </div>
+
+      <div id="blok2">
+        <h2>Tweede vraag</h2>
+        <div>
+          Welke programmeertaal kan door alle browsers uitgevoerd worden?
+        </div>
+        <input type="text" id="vraag2"></input>
+        <input type="hidden" id="antwoord2" value="Javascript" />
+        <button type="submit" id="kijkna2">Kijk na</button>
+        <span class="label label-success" id="juist2">Ook juist!</span>
+        <span class="label label-warning" id="fout2">Fout. Hint, je gaat er vandaag mee aan de slag.</span>
+      </div>
+
+      <div id="blok3">
+        <h2>Derde vraag</h2>
+        <div>
+          Waar staat de afkorting 'CSS' voor?
+        </div>
+        <input type="text" id="vraag3"></input>
+        <input type="hidden" id="antwoord3" value="Cascading Style Sheets" />
+        <button type="submit" id="kijkna3">Kijk na</button>
+        <span class="label label-success" id="juist3">Weer juist!</span>
+        <span class="label label-warning" id="fout3">Fout. Misschien kan het internet je helpen?</span>
+      </div>
+
+      <div id="blok4">
+        <h2>Vierde vraag</h2>
+        <div>
+          Wat is het antwoord op deze vraag?
+          <span id="hint4">Hint: kan je tussen 'de lijntjes' door lezen?</span>
+        </div>
+        <input type="text" id="vraag4"></input>
+        <input type="hidden" id="antwoord4" value="Wortelpuree" />
+        <button type="submit" id="kijkna4">Kijk na</button>
+        <span class="label label-warning" id="fout4">Fout. Hint, kan je tussen 'de lijntjes' door lezen?</span>
+        <div class="alert alert-success top-buffer" id="juist4">Perfect, je bent klaar om je eigen website te maken!</div>
+      </div>
+
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // wanneer alles geladen is, verberg vanalles
+        $(document).ready(function(){
+            $("#blok2").hide();
+            $("#blok3").hide();
+            $("#blok4").hide();
+            // gemakkelijker met een lusje:
+            for (var i=1; i!=5; i++) {
+                $("#hint"+i).hide();
+                $("#juist"+i).hide();
+                $("#fout"+i).hide();
+                // wat als er op kijkna wordt geduwd?
+                // beetje vreemde code maar dat moet zo in een 'for' lus
+                function tmp(j) { return function() { kijk_na(j); } };
+                $("#kijkna"+i).click({'arg1':i}, tmp(i));
+            }
+        });
+        // onze eigen functie: kijk het antwoord op vraag 'i' na
+        function kijk_na(i) {
+            // toLowerCase: let niet op hoofdletters
+            if ($("#vraag"+i).val().toLowerCase() == $("#antwoord"+i).val().toLowerCase()) {
+                // het juist antwoord!
+                $("#fout"+i).hide();
+                $("#juist"+i).show();
+                $("#blok"+(i+1)).show();
+            } else {
+                // een fout antwoord, toon de hint
+                $("#juist"+i).hide();
+                $("#fout"+i).show();
+            }
+        }
+    </script>
+  </body>
+</html>

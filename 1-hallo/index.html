@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hallo website</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <p />
+
+      <div class="panel panel-info">
+        <div class="panel-heading">Hallo, ik ben een website. Wie ben jij?</div>
+        <div class="panel-body">
+          <input type="text" id="naam" class="form-control"></input>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <button id="knop" type="button" class="btn btn-primary btn-lg btn-block">Click mij!</button>
+        </div>
+        <div id="tel" class="col-md-4"></div>
+      </p>
+
+
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // wanneer alles geladen is, verberg vanalles
+        $(document).ready(function(){
+            // click teller
+            var teller = 0;
+            var msg = 'Click mij';
+
+            // verberg knop om te beginnen
+            $("#knop").hide();
+
+            // wanneer een naam ingevuld is
+            $("#naam").change(function(){
+                $("#knop").show();
+                // verander de tekst van de knop
+                $("#knop").html(msg+', '+$("#naam").val()+'!');
+            });
+
+            // wanneer de knop geclicked wordt
+            $("#knop").click(function(){
+                teller = teller + 1;
+                if (teller == 1) {
+                    msg = 'Click mij nogmaals';
+                } else if (teller == 5) {
+                    msg = 'Joepie, blijven clicken';
+                } else if (teller == 10) {
+                    msg = 'Niet stoppen met clicken';
+                } else if (teller == 20) {
+                    msg = 'Ik word toch zo graag geklicked';
+                } else if (teller == 35) {
+                    msg = 'Niemand clickt zo goed als jij';
+                } else if (teller == 60) {
+                    msg = 'Ik kan zo blijven doorgaan';
+                } else if (teller >= 100) {
+                    var rest = teller % 100; // rest bij deling door 100
+                    if (rest == 0) { // als teller deelbaar door 100
+                        var oo = "";
+                        for (var n=0; n<teller/100; n++) {
+                            // van 0 tot teller/100
+                            oo += 'o';
+                        }
+                        msg = 'Doo'+oo+'rgaan';
+                    }
+                }
+                // update de tekstjes
+                $("#tel").html('('+teller+')');
+                $("#knop").html(msg+', '+$("#naam").val()+'!');
+            });
+        });
+    </script>
+  </body>
+</html>
