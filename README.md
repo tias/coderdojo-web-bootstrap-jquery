@@ -16,7 +16,7 @@ Basics
 Voorbeeld websites
 ------------------
 * [eenvoudige quiz](eenvoudige-quiz/index.html)
-* [raad het getal](TODO)
+* [raad het getal](raad-het-getal/index.html)
 * [naam + clicks](TODO)
 * [vliegenmepper](TODO)
 * [nog meer, met uitleg (in het Engels)](http://davidbau.com/javascript/learn/00-preface.html)
