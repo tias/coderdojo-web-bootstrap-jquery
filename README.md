@@ -5,6 +5,7 @@ Bootstrap wordt gebruikt om de look-and-feel te verzorgen, door middel van HTML 
 
 Jquery wordt gebruikt om het geheel interactief te maken, door middel van javascript.
 
+Bijhorende website: [http://tias.github.io/coderdojo-web-bootstrap-jquery/](http://tias.github.io/coderdojo-web-bootstrap-jquery/)
 
 Basics
 ------
