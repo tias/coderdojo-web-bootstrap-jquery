@@ -22,13 +22,12 @@ Voorbeeld websites
 * [nog meer, met uitleg (in het Engels)](http://davidbau.com/javascript/learn/00-preface.html)
 
 
-Wat heb je nodig?
------------------
-* een browser met developer tools (firefox of chrome)
-* een text-editor: notepad++
-* of online editor: [jsfiddle.net](http://jsfiddle.net/)
+Hoe beginnen?
+-------------
+* Gebruik [jsbin.com](http://jsbin.com/?html,js,output) (beter dan jsfiddle)
+* Je kan verderwerken op een van bovende voorbeeldjes (e.g. de quiz), copy/paste in een jsbin
+* Wil je op je eigen computer werken? Notepad++ is een goede code editor.
 
-Aan jou! Bedenk iets (begin eenvoudig), zoek een bootstrap voorbeeld en maak je eigen interactieve website!
 
 Bronnen
 -------
