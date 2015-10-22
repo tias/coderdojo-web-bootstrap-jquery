@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2015 by tias (http://jsbin.com/cakomu/8/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <meta charset="utf-8">
+  <title>Jessa's woordenlijst</title>
+</head>
+<body>
+
+  <h3>Oefen je Engelse woordenschat!</h3>
+  
+  Engels: <input id="vraag"></input><br />
+  Nederlands: <input id="antwoord"><br />
+  
+  <button id="kijkna">Kijk na</button>
+
+<!--
+ Kan je volgende uitbreidingen maken?
+
+ * het volgende woord mag niet hetzelfde zijn als het huidige woord
+ * het eerste woord zou beter ook een willekeurig woord zijn
+ * kan je een 'Toon antwoord' knop toevoegen die je het antwoord toont, in geval je het niet weet?
+ * misschien die knop enkel tonen na 2 foute antwoorden?
+-->
+
+<script id="jsbin-javascript">
+// de lijsten met woorden
+var engels=['head', 'title', 'body', 'input', 'button', 'ready', 'function', 'random', 'length'];
+var nederl=['hoofd', 'titel', 'lichaam', 'invoer', 'knop', 'klaar', 'functie', 'willekeurig', 'lengte'];
+var positie;
+
+// om te beginnen, toon eerste woord
+positie = 0;
+$('#vraag').val(engels[positie]);
+
+// wanneer op 'Kijk na' geduwt wordt
+$('#kijkna').click(function() {
+  var invoer = $("#antwoord").val();
+  
+  if (invoer == nederl[positie]) {
+    // neem een willekeurig getal tussen 0 en de lengte van de woordenschat
+    volgende = Math.floor(Math.random()*engels.length);
+    
+    // vul in
+    positie = volgende;
+    $('#vraag').val(engels[positie]);
+    $('#antwoord').val('');
+  } else {
+    // foute antwoord
+    alert('Fout, het antwoord is niet "'+invoer+'", probeer nog eens.');
+  }
+});
+
+</script>
+</body>
+</html>
